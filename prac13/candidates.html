@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="HireHub candidate directory loaded from an API endpoint"
+    />
+    <title>Candidates | HireHub Recruitment Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header id="top">
+      <h1>HireHub Recruitment Portal</h1>
+      <p>Connecting talent with opportunity</p>
+    </header>
+    <nav>
+      <a class="brand" href="index.html">
+        <img src="images/logo.svg" alt="HireHub logo" width="160" height="48" />
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="candidates.html" class="active">Candidates</a></li>
+        <li><a href="tasks.html">Tasks</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section id="candidates">
+        <h2>Registered Candidates</h2>
+        <p>
+          This page fetches candidate records from a live REST endpoint
+          (<code id="endpoint-url">https://jsonplaceholder.typicode.com/users</code>)
+          and shows them without reloading the page.
+        </p>
+
+        <div class="toolbar">
+          <button type="button" id="load-btn">Load Candidates</button>
+          <button type="button" id="clear-btn" class="secondary">Clear</button>
+          <button type="button" id="error-btn" class="secondary">Test Error Handling</button>
+        </div>
+
+        <!-- loading indicator -->
+        <div id="loader" class="loader" role="status" hidden>
+          <span class="spinner" aria-hidden="true"></span>
+          <p>Loading candidates...</p>
+        </div>
+
+        <!-- error message -->
+        <div id="error-box" class="alert error" role="alert" hidden>
+          <p id="error-text"></p>
+          <button type="button" id="retry-btn">Try Again</button>
+        </div>
+
+        <!-- summary cards (CSS Grid) -->
+        <div id="summary" class="summary-grid" hidden>
+          <div class="stat"><span class="stat-number" id="stat-total">0</span><p>Candidates</p></div>
+          <div class="stat"><span class="stat-number" id="stat-cities">0</span><p>Cities</p></div>
+          <div class="stat"><span class="stat-number" id="stat-companies">0</span><p>Current employers</p></div>
+          <div class="stat"><span class="stat-number" id="stat-time">0</span><p>Load time (ms)</p></div>
+        </div>
+
+        <p id="status-msg" class="hint" aria-live="polite"></p>
+
+        <!-- data table (scrolls sideways on small screens) -->
+        <div class="table-wrap" id="table-wrap" hidden>
+          <table id="candidate-table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">City</th>
+                <th scope="col">Current Employer</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Applying For</th>
+              </tr>
+            </thead>
+            <tbody id="candidate-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2026 HireHub Recruitment Portal. All rights reserved.</p>
+      <p>
+        Email:
+        <a href="mailto:careers@hirehub.example">careers@hirehub.example</a> |
+        Phone: +91 98765 43210
+      </p>
+    </footer>
+    <a class="back-to-top" href="#top">&uarr; Top</a>
+    <div id="toast" class="toast" role="status" aria-live="polite"><span></span></div>
+    <script src="js/animations.js" defer></script>
+    <script src="js/api.js" defer></script>
+  </body>
+</html>

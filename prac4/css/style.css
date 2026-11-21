@@ -1,0 +1,273 @@
+/* =====================================================
+   HireHub Recruitment Portal - Practicum 4 (CSS3)
+   ===================================================== */
+
+/* ---------- Base page ---------- */
+* {
+  box-sizing: border-box;   /* width includes padding and border */
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;              /* page is at least one full screen tall */
+  display: flex;                  /* stack header, nav, main, footer */
+  flex-direction: column;
+  font-family: "Poppins", Arial, sans-serif;
+  line-height: 1.6;
+  color: #1e293b;
+  background-color: #f4f7fb;
+}
+
+/* ---------- Headings, links and images ---------- */
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 22px;
+  color: #174ea6;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+a {
+  color: #1e5eff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+}
+
+main li {
+  margin-bottom: 6px;
+}
+
+/* ---------- Page header ---------- */
+body > header {
+  background-color: white;
+  text-align: center;
+  padding: 16px;
+  border-bottom: 4px solid #ff9800;
+}
+
+body > header h1 {
+  margin: 6px 0;
+  color: #174ea6;
+}
+
+body > header p {
+  margin: 0;
+  color: #5f6b7a;
+}
+
+/* ---------- Navigation bar (stays at the top while scrolling) ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #1e5eff;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  display: block;
+  padding: 14px 24px;
+  color: white;
+}
+
+nav a:hover {
+  background-color: #174ea6;
+  text-decoration: none;
+}
+
+/* the page you are currently on */
+nav a.active {
+  background-color: #174ea6;
+  border-bottom: 3px solid #ff9800;
+}
+
+/* ---------- Main content boxes ---------- */
+main {
+  flex: 1;                        /* grows so the footer is pushed to the bottom */
+  width: 100%;
+  max-width: 1000px;
+  margin: 28px auto;
+  padding: 0 16px;
+}
+
+main > section {
+  background-color: white;
+  border: 1px solid #d5deea;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- Home page: hero ---------- */
+#hero {
+  text-align: center;
+}
+
+#hero img {
+  width: 100%;
+  max-height: 240px;
+  border-radius: 8px;
+}
+
+/* ---------- Home page: featured job cards (float layout) ---------- */
+#featured {
+  overflow: hidden;               /* keeps the floated cards inside the box */
+}
+
+#featured article {
+  float: left;
+  width: 30%;
+  min-height: 230px;
+  margin: 10px 1.5%;
+  padding: 20px 16px 16px;
+  background-color: #f4f7fb;
+  border: 1px solid #d5deea;
+  border-top: 4px solid #1e5eff;
+  border-radius: 8px;
+}
+
+#featured article:hover {
+  border-top-color: #ff9800;
+}
+
+/* ---------- Tables ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #d5deea;
+}
+
+thead th {
+  background-color: #1e5eff;
+  color: white;
+}
+
+tr:hover {
+  background-color: #e1eaff;
+}
+
+td img {
+  vertical-align: middle;
+}
+
+/* ---------- Job details page ---------- */
+#job-web-developer header {
+  overflow: hidden;               /* keeps the floated logo inside the header */
+  border-bottom: 2px solid #d5deea;
+  margin-bottom: 16px;
+}
+
+#job-web-developer header img {
+  float: left;
+  margin-right: 16px;
+}
+
+#job-web-developer header p {
+  margin: 0 0 12px;
+  color: #5f6b7a;
+}
+
+/* ---------- Application form ---------- */
+fieldset {
+  border: 1px solid #d5deea;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+}
+
+legend {
+  padding: 0 10px;
+  font-weight: bold;
+  color: #174ea6;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  max-width: 420px;
+  padding: 9px 12px;
+  margin-top: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 1px solid #d5deea;
+  border-radius: 6px;
+}
+
+/* radio buttons and checkboxes stay small */
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 4px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #1e5eff;
+}
+
+button {
+  padding: 10px 24px;
+  font-family: inherit;
+  font-size: 16px;
+  color: white;
+  background-color: #1e5eff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #174ea6;
+}
+
+button[type="reset"] {
+  background-color: #5f6b7a;
+}
+
+/* ---------- Footer ---------- */
+body > footer {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  background-color: #1e293b;
+  color: #cbd5e1;
+}
+
+body > footer p {
+  margin: 4px 0;
+}
+
+body > footer a {
+  color: #ff9800;
+}

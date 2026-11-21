@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="HireHub portal settings with custom toggle switches" />
+    <title>Settings | HireHub Recruitment Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      /* apply saved settings before the page paints (no flash) */
+      try {
+        var s = JSON.parse(localStorage.getItem("hirehubSettings")) || {};
+        var c = document.documentElement.classList;
+        if (s.dark) c.add("dark");
+        if (s.hideSalary) c.add("hide-salary");
+        if (s.reduceMotion) c.add("no-motion");
+      } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header id="top">
+      <h1>HireHub Recruitment Portal</h1>
+      <p>Connecting talent with opportunity</p>
+    </header>
+    <nav>
+      <a class="brand" href="index.html">
+        <img src="images/logo.svg" alt="HireHub logo" width="160" height="48" />
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="candidates.html">Candidates</a></li>
+        <li><a href="tasks.html">Tasks</a></li>
+        <li><a href="settings.html" class="active">Settings</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section id="settings">
+        <h2>Portal Settings</h2>
+        <p>
+          Switch features on or off. Your choices change the whole portal
+          straight away and are remembered the next time you visit.
+        </p>
+
+        <div class="setting">
+          <div class="setting-text">
+            <strong>Dark mode</strong>
+            <p>Use a dark colour scheme that is easier on the eyes at night.</p>
+          </div>
+          <span class="state" id="state-dark">Off</span>
+          <label class="switch" for="set-dark">
+            <input type="checkbox" id="set-dark" data-setting="dark" role="switch" />
+            <span class="sr-only">Dark mode</span>
+          </label>
+        </div>
+
+        <div class="setting">
+          <div class="setting-text">
+            <strong>Hide salary details</strong>
+            <p>Hide salary figures on the Home and Jobs pages for privacy.</p>
+          </div>
+          <span class="state" id="state-hideSalary">Off</span>
+          <label class="switch" for="set-hideSalary">
+            <input type="checkbox" id="set-hideSalary" data-setting="hideSalary" role="switch" />
+            <span class="sr-only">Hide salary details</span>
+          </label>
+        </div>
+
+        <div class="setting">
+          <div class="setting-text">
+            <strong>Job alerts</strong>
+            <p>Show a notification about new vacancies while you browse.</p>
+          </div>
+          <span class="state" id="state-alerts">Off</span>
+          <label class="switch" for="set-alerts">
+            <input type="checkbox" id="set-alerts" data-setting="alerts" role="switch" />
+            <span class="sr-only">Job alerts</span>
+          </label>
+        </div>
+
+        <div class="setting">
+          <div class="setting-text">
+            <strong>Reduce animations</strong>
+            <p>Turn off moving effects such as fades, slides and pulses.</p>
+          </div>
+          <span class="state" id="state-reduceMotion">Off</span>
+          <label class="switch" for="set-reduceMotion">
+            <input type="checkbox" id="set-reduceMotion" data-setting="reduceMotion" role="switch" />
+            <span class="sr-only">Reduce animations</span>
+          </label>
+        </div>
+
+        <p><button type="button" id="reset-settings" class="secondary">Restore defaults</button></p>
+      </section>
+
+      <section id="preview">
+        <h2>Live Preview</h2>
+        <p>A sample vacancy card. Watch it change as you flip the switches above.</p>
+        <div class="preview-card">
+          <span class="badge hot">Hot</span>
+          <h3>Web Developer</h3>
+          <p>
+            <strong>Company:</strong> TechNova Solutions |
+            <strong>Location:</strong> Bengaluru
+            <span class="salary-info">| <strong>Salary:</strong> &#8377;6-8 LPA</span>
+          </p>
+          <p>Build and maintain responsive websites using HTML, CSS and JavaScript.</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2026 HireHub Recruitment Portal. All rights reserved.</p>
+      <p>
+        Email:
+        <a href="mailto:careers@hirehub.example">careers@hirehub.example</a> |
+        Phone: +91 98765 43210
+      </p>
+    </footer>
+    <a class="back-to-top" href="#top">&uarr; Top</a>
+    <div id="toast" class="toast" role="status" aria-live="polite"><span></span></div>
+    <script src="js/animations.js" defer></script>
+    <script src="js/settings.js" defer></script>
+  </body>
+</html>

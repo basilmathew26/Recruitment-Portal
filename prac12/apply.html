@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apply Online | HireHub Recruitment Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header id="top">
+      <h1>HireHub Recruitment Portal</h1>
+      <p>Connecting talent with opportunity</p>
+    </header>
+    <nav>
+      <a class="brand" href="index.html">
+        <img src="images/logo.svg" alt="HireHub logo" width="160" height="48" />
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="candidates.html">Candidates</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section id="application">
+        <h2>Online Job Application Form</h2>
+        <p>Fields marked with <strong>*</strong> are required.</p>
+
+        <!-- Messages controlled by js/validation.js -->
+        <div id="form-summary" class="alert error" role="alert" hidden></div>
+        <div id="success-message" class="alert success" role="status" hidden></div>
+
+        <form action="#" method="post" enctype="multipart/form-data" novalidate>
+          <fieldset>
+            <legend>Personal Details</legend>
+
+            <p>
+              <label for="fullname">Full Name *</label><br />
+              <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                placeholder="e.g. Anil Kumar"
+                required
+                minlength="3"
+                maxlength="50"
+                autocomplete="name"
+              />
+              <span class="error" id="fullname-error"></span>
+            </p>
+            <p>
+              <label for="email">Email Address *</label><br />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+                autocomplete="email"
+              />
+              <span class="error" id="email-error"></span>
+            </p>
+            <p>
+              <label for="phone">Phone Number *</label><br />
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="10-digit mobile number"
+                required
+                pattern="[6-9][0-9]{9}"
+                title="Enter a valid 10-digit mobile number"
+                maxlength="10"
+                autocomplete="tel"
+              />
+              <span class="error" id="phone-error"></span>
+            </p>
+            <p>
+              <label for="dob">Date of Birth * (18 years or older)</label><br />
+              <input
+                type="date"
+                id="dob"
+                name="dob"
+                required
+                max="2008-11-19"
+              />
+              <span class="error" id="dob-error"></span>
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Create Account</legend>
+
+            <p>
+              <label for="password"
+                >Password * (min 8 characters, letters and numbers)</label
+              ><br />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                minlength="8"
+                pattern="(?=.*[A-Za-z])(?=.*[0-9]).{8,}"
+                title="At least 8 characters with at least one letter and one number"
+                autocomplete="new-password"
+              />
+              <span class="hint" id="password-strength" aria-live="polite"></span>
+              <span class="error" id="password-error"></span>
+            </p>
+            <p>
+              <label for="confirm">Confirm Password *</label><br />
+              <input
+                type="password"
+                id="confirm"
+                name="confirm"
+                required
+                minlength="8"
+                autocomplete="new-password"
+              />
+              <span class="error" id="confirm-error"></span>
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Job Preferences</legend>
+
+            <p>
+              <label for="position">Position Applied For *</label><br />
+              <select id="position" name="position" required>
+                <option value="" selected disabled>
+                  -- Select a position --
+                </option>
+                <option value="web-developer">Web Developer</option>
+                <option value="data-analyst">Data Analyst</option>
+                <option value="hr-executive">HR Executive</option>
+                <option value="ui-ux-designer">UI/UX Designer</option>
+                <option value="software-tester">Software Tester</option>
+                <option value="marketing-intern">
+                  Digital Marketing Intern
+                </option>
+              </select>
+              <span class="error" id="position-error"></span>
+            </p>
+            <p>
+              <label for="location">Preferred Location</label><br />
+              <select id="location" name="location">
+                <option value="any">Any</option>
+                <option value="bengaluru">Bengaluru</option>
+                <option value="chennai">Chennai</option>
+                <option value="kochi">Kochi</option>
+                <option value="hyderabad">Hyderabad</option>
+                <option value="coimbatore">Coimbatore</option>
+                <option value="remote">Remote</option>
+              </select>
+            </p>
+
+            <p>Job Type *</p>
+            <p>
+              <input
+                type="radio"
+                id="fulltime"
+                name="jobtype"
+                value="full-time"
+                required
+              />
+              <label for="fulltime">Full-time</label>
+              <input
+                type="radio"
+                id="parttime"
+                name="jobtype"
+                value="part-time"
+              />
+              <label for="parttime">Part-time</label>
+              <input
+                type="radio"
+                id="internship"
+                name="jobtype"
+                value="internship"
+              />
+              <label for="internship">Internship</label>
+              <br />
+              <span class="error" id="jobtype-error"></span>
+            </p>
+
+            <p>
+              <label for="joindate">Available From *</label><br />
+              <input
+                type="date"
+                id="joindate"
+                name="joindate"
+                required
+                min="2026-10-01"
+              />
+              <span class="error" id="joindate-error"></span>
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Qualification and Skills</legend>
+
+            <p>
+              <label for="experience">Years of Experience *</label><br />
+              <input
+                type="number"
+                id="experience"
+                name="experience"
+                required
+                min="0"
+                max="40"
+                step="1"
+                value="0"
+              />
+              <span class="error" id="experience-error"></span>
+            </p>
+            <p>
+              <label for="salary">Expected Salary (₹ LPA)</label><br />
+              <input
+                type="number"
+                id="salary"
+                name="salary"
+                min="1"
+                max="50"
+                step="0.5"
+                placeholder="e.g. 6"
+              />
+              <span class="error" id="salary-error"></span>
+            </p>
+
+            <p>Skills (select all that apply)</p>
+            <p>
+              <input type="checkbox" id="s-html" name="skills" value="html" />
+              <label for="s-html">HTML/CSS</label>
+              <input
+                type="checkbox"
+                id="s-js"
+                name="skills"
+                value="javascript"
+              />
+              <label for="s-js">JavaScript</label>
+              <input type="checkbox" id="s-sql" name="skills" value="sql" />
+              <label for="s-sql">SQL</label>
+              <input type="checkbox" id="s-py" name="skills" value="python" />
+              <label for="s-py">Python</label>
+              <input
+                type="checkbox"
+                id="s-comm"
+                name="skills"
+                value="communication"
+              />
+              <label for="s-comm">Communication</label>
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Documents and Cover Letter</legend>
+
+            <p>
+              <label for="resume">Upload Resume * (PDF or Word, max 2 MB)</label
+              ><br />
+              <input
+                type="file"
+                id="resume"
+                name="resume"
+                accept=".pdf,.doc,.docx"
+                required
+              />
+              <span class="error" id="resume-error"></span>
+            </p>
+            <p>
+              <label for="cover">Cover Letter</label><br />
+              <textarea
+                id="cover"
+                name="cover"
+                rows="6"
+                cols="50"
+                maxlength="500"
+                placeholder="Tell us why you are a good fit (max 500 characters)"
+              ></textarea>
+              <span class="hint" id="cover-count">0 / 500</span>
+              <span class="error" id="cover-error"></span>
+            </p>
+          </fieldset>
+
+          <p>
+            <input type="checkbox" id="terms" name="terms" required />
+            <label for="terms"
+              >I confirm that the information provided is correct and agree to
+              the terms. *</label
+            ><br />
+            <span class="error" id="terms-error"></span>
+          </p>
+
+          <p>
+            <button type="submit">Apply Now</button>
+            <button type="reset">Clear Form</button>
+          </p>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>© 2026 HireHub Recruitment Portal. All rights reserved.</p>
+      <p>
+        Email:
+        <a href="mailto:careers@hirehub.example">careers@hirehub.example</a> |
+        Phone: +91 98765 43210
+      </p>
+    </footer>
+    <a class="back-to-top" href="#top">&uarr; Top</a>
+    <div id="toast" class="toast" role="status" aria-live="polite"><span></span></div>
+    <script src="js/animations.js" defer></script>
+    <script src="js/validation.js" defer></script>
+  </body>
+</html>

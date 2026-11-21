@@ -1,0 +1,1457 @@
+/* =====================================================
+   HireHub Recruitment Portal - Practicums 6-9 (Responsive Design + Animations)
+   ===================================================== */
+
+/* ---------- Base page ---------- */
+* {
+  box-sizing: border-box;   /* width includes padding and border */
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;              /* page is at least one full screen tall */
+  display: flex;                  /* stack header, nav, main, footer */
+  flex-direction: column;
+  font-family: "Poppins", Arial, sans-serif;
+  line-height: 1.6;
+  color: #1e293b;
+  background-color: #f4f7fb;
+}
+
+/* ---------- Headings, links and images ---------- */
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 22px;
+  color: #174ea6;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+a {
+  color: #1e5eff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+}
+
+main li {
+  margin-bottom: 6px;
+}
+
+/* ---------- Page header ---------- */
+body > header {
+  background-color: white;
+  text-align: center;
+  padding: 16px;
+  border-bottom: 4px solid #ff9800;
+}
+
+body > header h1 {
+  margin: 6px 0;
+  color: #174ea6;
+}
+
+body > header p {
+  margin: 0;
+  color: #5f6b7a;
+}
+
+/* ---------- Navigation bar (Flexbox, sticks to the top while scrolling) ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;   /* logo on the left, links on the right */
+  align-items: center;              /* centre everything vertically */
+  padding: 0 24px;
+  background-color: #1e5eff;
+}
+
+nav ul {
+  display: flex;                    /* puts the links in a row */
+  flex-wrap: wrap;
+  gap: 6px;                         /* space between links */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  display: block;
+  padding: 12px 16px;
+  color: white;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  background-color: #174ea6;
+  text-decoration: none;
+}
+
+/* the page you are currently on */
+nav a.active {
+  background-color: #174ea6;
+  border-bottom: 3px solid #ff9800;
+}
+
+/* logo inside the nav */
+nav a.brand {
+  padding: 8px 0;
+}
+
+nav a.brand:hover {
+  background-color: transparent;
+}
+
+nav a.brand img {
+  display: block;
+  height: 42px;
+  width: auto;
+}
+
+/* ---------- Main content boxes ---------- */
+main {
+  flex: 1;                        /* grows so the footer is pushed to the bottom */
+  width: 100%;
+  max-width: 1000px;
+  margin: 28px auto;
+  padding: 0 16px;
+}
+
+main > section {
+  background-color: white;
+  border: 1px solid #d5deea;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- Home page: hero ---------- */
+#hero {
+  text-align: center;
+}
+
+#hero img {
+  width: 100%;
+  max-height: 240px;
+  border-radius: 8px;
+}
+
+/* ---------- Home page: featured job cards (Flexbox) ---------- */
+#featured {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 16px;                 /* row gap and column gap */
+}
+
+#featured h2 {
+  flex: 0 0 100%;                 /* heading takes the full first row */
+  margin: 0;
+}
+
+#featured article {
+  flex: 1 1 260px;                /* cards grow and shrink, 260px wide to start */
+  min-height: 230px;
+  padding: 20px 16px 16px;
+  background-color: #f4f7fb;
+  border: 1px solid #d5deea;
+  border-top: 4px solid #1e5eff;
+  border-radius: 8px;
+}
+
+#featured article:hover {
+  border-top-color: #ff9800;
+}
+
+/* ---------- Tables ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #d5deea;
+}
+
+thead th {
+  background-color: #1e5eff;
+  color: white;
+}
+
+tr:hover {
+  background-color: #e1eaff;
+}
+
+td img {
+  vertical-align: middle;
+}
+
+/* ---------- Job details page ---------- */
+#job-web-developer header {
+  overflow: hidden;               /* keeps the floated logo inside */
+  border-bottom: 2px solid #d5deea;
+  margin-bottom: 16px;
+}
+
+#job-web-developer header img {
+  float: left;
+  margin-right: 16px;
+}
+
+#job-web-developer header p {
+  margin: 0 0 12px;
+  color: #5f6b7a;
+}
+
+/* ---------- Application form ---------- */
+fieldset {
+  border: 1px solid #d5deea;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+}
+
+legend {
+  padding: 0 10px;
+  font-weight: bold;
+  color: #174ea6;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  max-width: 420px;
+  padding: 9px 12px;
+  margin-top: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 1px solid #d5deea;
+  border-radius: 6px;
+}
+
+/* radio buttons and checkboxes stay small */
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 4px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #1e5eff;
+}
+
+button {
+  padding: 10px 24px;
+  font-family: inherit;
+  font-size: 16px;
+  color: white;
+  background-color: #1e5eff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #174ea6;
+}
+
+button[type="reset"] {
+  background-color: #5f6b7a;
+}
+
+/* =====================================================
+   CSS Positioning (static, relative, absolute, fixed, sticky)
+   ===================================================== */
+
+/* STATIC: the default. Every element without a position rule (header,
+   main, sections, footer...) sits in the normal document flow. */
+
+/* RELATIVE + ABSOLUTE: corner badge on each featured job card.
+   The card is the positioned parent (relative), so the badge
+   (absolute) is placed against the card, not the whole page. */
+#featured article {
+  position: relative;
+}
+
+#featured article h3 {
+  padding-right: 64px;            /* keeps the title clear of the badge */
+  margin-top: 0;
+}
+
+.badge {
+  position: absolute;             /* taken out of the flow, placed inside the card */
+  top: 12px;
+  right: 12px;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  background-color: #ff9800;
+  border-radius: 999px;
+}
+
+.badge.hot {
+  background-color: #d93025;
+}
+
+.badge.new {
+  background-color: #188038;
+}
+
+/* FIXED: "Back to top" link stays at the bottom-right of the screen
+   while the page scrolls. z-index 50 keeps it below the nav (100). */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 50;
+  padding: 10px 16px;
+  color: white;
+  background-color: #1e5eff;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.back-to-top:hover {
+  background-color: #174ea6;
+  text-decoration: none;
+}
+
+/* STICKY (2nd use): table column headings stay visible under the sticky
+   nav while the vacancy list scrolls. Desktop only, because the table
+   scrolls sideways on small screens (overflow-x) and sticky would not work. */
+@media (min-width: 769px) {
+  #job-list thead th {
+    position: sticky;
+    top: 58px;                    /* height of the sticky nav bar */
+    z-index: 10;
+  }
+}
+
+/* =====================================================
+   Image Gallery (CSS Grid)
+   ===================================================== */
+.gallery {
+  display: grid;
+  /* as many columns as fit, each at least 240px wide, sharing the space equally */
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.gallery figure {
+  margin: 0;
+  overflow: hidden;               /* clips the image to the rounded corners */
+  background-color: #f4f7fb;
+  border: 1px solid #d5deea;
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gallery figure:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: auto;                   /* overrides the height="480" attribute so aspect-ratio works */
+  aspect-ratio: 4 / 3;            /* every tile has the same shape */
+  object-fit: cover;              /* crops instead of stretching */
+}
+
+.gallery figcaption {
+  padding: 10px 12px;
+}
+
+.gallery figcaption strong {
+  display: block;
+  color: #174ea6;
+}
+
+.gallery figcaption span {
+  font-size: 14px;
+  color: #5f6b7a;
+}
+
+/* ---------- Footer (Flexbox) ---------- */
+body > footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  padding: 20px 24px;
+  background-color: #1e293b;
+  color: #cbd5e1;
+}
+
+body > footer p {
+  margin: 4px 0;
+}
+
+body > footer a {
+  color: #ff9800;
+}
+
+/* =====================================================
+   Responsive layout (CSS media queries)
+     Desktop : 1025px and above
+     Tablet  : 601px to 1024px
+     Mobile  : 600px and below
+     Small   : 400px and below
+   ===================================================== */
+
+/* ---------- DESKTOP (1025px and above) ---------- */
+@media (min-width: 1025px) {
+  main {
+    max-width: 1140px;            /* wider reading area on big screens */
+  }
+
+  h1 { font-size: 32px; }
+  h2 { font-size: 26px; }
+
+  #featured article {
+    flex: 1 1 30%;                /* three cards in one row */
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);   /* four photos per row */
+  }
+}
+
+/* ---------- TABLET (601px to 1024px) ---------- */
+@media (min-width: 601px) and (max-width: 1024px) {
+  main {
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+
+  main > section {
+    padding: 20px;
+  }
+
+  nav {
+    padding: 0 16px;
+  }
+
+  nav a {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  #featured article {
+    flex: 1 1 calc(50% - 16px);   /* two cards per row */
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);   /* three photos per row */
+  }
+
+  th,
+  td {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+
+  input,
+  select,
+  textarea {
+    max-width: 100%;
+  }
+}
+
+/* ---------- Portrait tablet and below (768px) ---------- */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;       /* logo above the links */
+    padding: 8px 16px;
+  }
+
+  nav ul {
+    justify-content: center;
+  }
+
+  body > footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);   /* two photos per row */
+  }
+
+  #job-list {
+    overflow-x: auto;             /* table scrolls sideways */
+  }
+
+  #job-list table {
+    min-width: 720px;
+  }
+}
+
+/* ---------- MOBILE (600px and below) ---------- */
+@media (max-width: 600px) {
+  h1 { font-size: 22px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 17px; }
+
+  body {
+    font-size: 15px;
+  }
+
+  main {
+    margin: 14px auto;
+    padding: 0 10px;
+  }
+
+  main > section {
+    padding: 16px 14px;
+  }
+
+  body > header {
+    padding: 12px 10px;
+  }
+
+  /* navigation: links in a 2 x 2 grid under the logo */
+  nav ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 4px;
+    padding-bottom: 8px;
+  }
+
+  nav li {
+    text-align: center;
+  }
+
+  nav a {
+    padding: 10px 8px;
+  }
+
+  /* hero banner and featured cards */
+  #hero img {
+    max-height: 140px;
+    object-fit: cover;
+  }
+
+  #featured article {
+    flex: 1 1 100%;               /* one card per row */
+    min-height: 0;
+  }
+
+  /* job table turns into stacked cards, one per vacancy */
+  #job-list {
+    overflow-x: visible;
+  }
+
+  #job-list table {
+    min-width: 0;
+  }
+
+  #job-list thead {
+    position: absolute;           /* hidden visually, still read by screen readers */
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  #job-list table,
+  #job-list tbody,
+  #job-list tr,
+  #job-list td {
+    display: block;
+    width: 100%;
+  }
+
+  #job-list tr {
+    margin-bottom: 16px;
+    padding: 6px 12px;
+    background-color: #f4f7fb;
+    border: 1px solid #d5deea;
+    border-top: 4px solid #1e5eff;
+    border-radius: 8px;
+  }
+
+  #job-list td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    text-align: right;
+  }
+
+  #job-list td:last-child {
+    border-bottom: none;
+  }
+
+  #job-list td::before {
+    content: attr(data-label);    /* column name comes from the HTML */
+    flex: 0 0 90px;
+    font-weight: 600;
+    text-align: left;
+    color: #174ea6;
+  }
+
+  /* gallery: two small tiles per row */
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .gallery figcaption {
+    padding: 8px;
+  }
+
+  .gallery figcaption strong {
+    font-size: 14px;
+  }
+
+  .gallery figcaption span {
+    font-size: 12px;
+  }
+
+  /* form: full-width fields and buttons, easy to tap */
+  fieldset {
+    padding: 8px 12px;
+  }
+
+  input,
+  select,
+  textarea {
+    max-width: 100%;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .back-to-top {
+    right: 12px;
+    bottom: 12px;
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+/* ---------- SMALL PHONES (400px and below) ---------- */
+@media (max-width: 400px) {
+  nav ul {
+    grid-template-columns: 1fr;   /* links stacked */
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;   /* one photo per row */
+  }
+
+  #job-list td::before {
+    flex-basis: 76px;
+  }
+}
+
+/* ---------- Touch screens: no hover lift effect ---------- */
+@media (hover: none) {
+  .gallery figure:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* ---------- Respect "reduce motion" setting ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =====================================================
+   PRACTICUM 9 - Animated sequences
+   @keyframes, animation, transition, transform, opacity, :hover
+   ===================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(217, 48, 37, 0.5); }
+  50%      { transform: scale(1.08); box-shadow: 0 0 0 8px rgba(217, 48, 37, 0); }
+}
+
+@keyframes pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0.92); }
+  100% { transform: scale(1); }
+}
+
+@keyframes heartbeat {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.5); }
+  60%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeOutRight {
+  to { opacity: 0; transform: translateX(40px); }
+}
+
+@keyframes progressBar {
+  from { width: 100%; }
+  to   { width: 0; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+
+/* ---------- Page load: sections fade in one after another ---------- */
+main > section {
+  animation: fadeInUp 0.6s ease both;
+}
+
+main > section:nth-child(2) { animation-delay: 0.15s; }
+main > section:nth-child(3) { animation-delay: 0.30s; }
+main > section:nth-child(4) { animation-delay: 0.45s; }
+
+#featured article {
+  animation: fadeInUp 0.6s ease both;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-top-color 0.25s;
+}
+
+#featured article:nth-of-type(1) { animation-delay: 0.3s; }
+#featured article:nth-of-type(2) { animation-delay: 0.45s; }
+#featured article:nth-of-type(3) { animation-delay: 0.6s; }
+
+#featured article:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(23, 78, 166, 0.15);
+}
+
+.badge.hot {
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.new-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  background-color: #188038;
+  border-radius: 999px;
+  animation: blink 1.6s ease-in-out infinite;
+}
+
+/* ---------- Buttons: hover lift and click "pop" ---------- */
+button {
+  transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(30, 94, 255, 0.3);
+}
+
+button.clicked {
+  animation: pop 0.3s ease;
+}
+
+button.loading {
+  opacity: 0.7;
+  cursor: wait;
+  animation: blink 0.8s ease-in-out infinite;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 0;
+}
+
+.card-actions button,
+.toggle-section,
+.copy-btn {
+  width: auto;
+  margin-bottom: 0;
+  padding: 6px 14px;
+  font-size: 14px;
+  color: #1e5eff;
+  background-color: white;
+  border: 1px solid #1e5eff;
+}
+
+.card-actions button:hover,
+.toggle-section:hover,
+.copy-btn:hover {
+  color: white;
+  background-color: #1e5eff;
+}
+
+.notify-btn.active,
+.copy-btn.copied {
+  color: white;
+  background-color: #188038;
+  border-color: #188038;
+}
+
+/* ---------- Info card that slides open under a featured job ---------- */
+.info-card {
+  display: grid;
+  grid-template-rows: 0fr;          /* closed: zero height */
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: grid-template-rows 0.35s ease, opacity 0.35s ease,
+              transform 0.35s ease, margin 0.35s ease;
+}
+
+.info-card > div {
+  overflow: hidden;
+  background-color: #e1eaff;
+  border-radius: 6px;
+}
+
+.info-card ul {
+  margin: 0;
+  padding: 10px 16px 10px 30px;
+  font-size: 14px;
+}
+
+.info-card.open {
+  grid-template-rows: 1fr;          /* open: natural height */
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 12px;
+}
+
+/* ---------- Collapsible sections (How it works, Why choose us) ---------- */
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-head h2 {
+  margin: 0;
+}
+
+.section-body {
+  display: grid;
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transition: grid-template-rows 0.4s ease, opacity 0.4s ease;
+}
+
+.section-body > div {
+  overflow: hidden;
+}
+
+.section-body.collapsed {
+  grid-template-rows: 0fr;
+  opacity: 0;
+}
+
+/* ---------- Jobs table: rows slide in one by one ---------- */
+#job-list tbody tr {
+  animation: slideInLeft 0.5s ease both;
+  transition: background-color 0.2s;
+}
+
+#job-list tbody tr:nth-child(1) { animation-delay: 0.10s; }
+#job-list tbody tr:nth-child(2) { animation-delay: 0.20s; }
+#job-list tbody tr:nth-child(3) { animation-delay: 0.30s; }
+#job-list tbody tr:nth-child(4) { animation-delay: 0.40s; }
+#job-list tbody tr:nth-child(5) { animation-delay: 0.50s; }
+#job-list tbody tr:nth-child(6) { animation-delay: 0.60s; }
+
+/* ---------- Gallery: tiles fade in, heart button beats ---------- */
+.gallery figure {
+  position: relative;
+  animation: fadeInUp 0.6s ease both;
+}
+
+.gallery figure:nth-child(1) { animation-delay: 0.10s; }
+.gallery figure:nth-child(2) { animation-delay: 0.20s; }
+.gallery figure:nth-child(3) { animation-delay: 0.30s; }
+.gallery figure:nth-child(4) { animation-delay: 0.40s; }
+.gallery figure:nth-child(5) { animation-delay: 0.50s; }
+.gallery figure:nth-child(6) { animation-delay: 0.60s; }
+.gallery figure:nth-child(7) { animation-delay: 0.70s; }
+.gallery figure:nth-child(8) { animation-delay: 0.80s; }
+
+.gallery img {
+  transition: transform 0.4s ease;
+}
+
+.gallery figure:hover img {
+  transform: scale(1.08);
+}
+
+.gallery .heart {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1;
+  color: #9aa7b8;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+}
+
+.gallery .heart:hover {
+  color: #d93025;
+  background-color: white;
+}
+
+.gallery .heart.liked {
+  color: #d93025;
+}
+
+.gallery .heart.beat span {
+  display: inline-block;
+  animation: heartbeat 0.6s ease;
+}
+
+/* ---------- Contact page ---------- */
+#contact li {
+  animation: slideInLeft 0.5s ease both;
+}
+
+#contact li:nth-child(1) { animation-delay: 0.20s; }
+#contact li:nth-child(2) { animation-delay: 0.35s; }
+#contact li:nth-child(3) { animation-delay: 0.50s; }
+#contact li:nth-child(4) { animation-delay: 0.65s; }
+
+.copy-btn {
+  margin-left: 8px;
+  padding: 2px 10px;
+  font-size: 13px;
+}
+
+/* ---------- Toast notification ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 200;
+  min-width: 240px;
+  max-width: 90%;
+  padding: 14px 20px 18px;
+  overflow: hidden;
+  color: white;
+  background-color: #1e293b;
+  border-left: 5px solid #1e5eff;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, 40px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.toast.success { border-left-color: #188038; }
+.toast.error   { border-left-color: #d93025; }
+
+.toast::after {                     /* countdown bar */
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.toast.show::after {
+  animation: progressBar 3s linear forwards;
+}
+
+@media (max-width: 600px) {
+  .toast {
+    bottom: 70px;                   /* stay clear of the back-to-top button */
+  }
+}
+
+/* =====================================================
+   PRACTICUM 10 - DOM manipulation (add, modify, display, remove)
+   display, position, flex, grid, padding, margin, border
+   ===================================================== */
+
+/* ---------- Home: greeting box inside the hero ---------- */
+.greeting {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.greeting input {
+  width: auto;
+  flex: 0 1 220px;
+  margin-top: 0;
+}
+
+/* ---------- Saved jobs / shortlist lists ---------- */
+#saved-list,
+#shortlist {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.saved-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 10px 14px;
+  background-color: #f4f7fb;
+  border: 1px solid #d5deea;
+  border-left: 4px solid #188038;
+  border-radius: 6px;
+  animation: slideInLeft 0.35s ease both;
+}
+
+.saved-item.removing,
+tr.removing {
+  animation: fadeOutRight 0.4s ease forwards;
+}
+
+#saved-empty,
+#shortlist-empty,
+#jobs-empty {
+  padding: 10px 14px;
+  color: #5f6b7a;
+  background-color: #f4f7fb;
+  border: 1px dashed #d5deea;
+  border-radius: 6px;
+}
+
+.save-btn.saved {
+  color: white;
+  background-color: #174ea6;
+  border-color: #174ea6;
+}
+
+/* ---------- Small buttons used inside lists and table rows ---------- */
+.mini-btn {
+  width: auto;
+  margin: 0;
+  padding: 4px 12px;
+  font-size: 13px;
+  color: #1e5eff;
+  background-color: white;
+  border: 1px solid #1e5eff;
+}
+
+.mini-btn:hover {
+  color: white;
+  background-color: #1e5eff;
+}
+
+.mini-btn.danger {
+  color: #d93025;
+  border-color: #d93025;
+}
+
+.mini-btn.danger:hover {
+  color: white;
+  background-color: #d93025;
+}
+
+button.secondary {
+  background-color: #5f6b7a;
+}
+
+/* ---------- Jobs table: row actions ---------- */
+.row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.row-actions .mini-btn {
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+.inline-input {
+  width: 100%;
+  max-width: 130px;
+  margin: 0 6px 0 0;
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+tr[data-shortlisted="true"] {
+  background-color: #fff6e0;
+  box-shadow: inset 4px 0 0 #ff9800;
+}
+
+tr.new-row {
+  animation: fadeInUp 0.5s ease both, highlight 2.5s ease 0.5s;
+}
+
+@keyframes highlight {
+  0%, 60% { background-color: #d9f3e1; }
+  100%    { background-color: transparent; }
+}
+
+/* ---------- Add-vacancy form (CSS Grid) ---------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px 18px;
+  margin-bottom: 8px;
+}
+
+.form-grid label {
+  font-weight: 500;
+}
+
+.form-grid input {
+  max-width: 100%;
+}
+
+/* tablet/desktop: let the shortlist and table sections breathe */
+#shortlist-panel,
+#add-vacancy {
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .saved-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .row-actions {
+    justify-content: flex-end;
+  }
+
+  .mini-btn {
+    width: auto;
+    margin-bottom: 0;
+  }
+
+  .greeting input {
+    flex-basis: 100%;
+  }
+}
+
+/* =====================================================
+   PRACTICUM 11 - Form validation styles
+   :focus, :invalid, :valid, border, padding, display
+   ===================================================== */
+
+/* the field the user is typing in */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid rgba(30, 94, 255, 0.25);
+  border-color: #1e5eff;
+}
+
+/* shown only after the user has visited the field (.touched),
+   so an untouched form does not start out covered in red */
+input.touched:invalid,
+select.touched:invalid,
+textarea.touched:invalid {
+  border-color: #d93025;
+  background-color: #fff6f5;
+}
+
+input.touched:invalid:focus,
+select.touched:invalid:focus,
+textarea.touched:invalid:focus {
+  outline-color: rgba(217, 48, 37, 0.25);
+}
+
+input.touched:valid,
+select.touched:valid,
+textarea.touched:valid {
+  border-color: #188038;
+}
+
+input[type="radio"].touched:invalid + label,
+input[type="checkbox"].touched:invalid + label {
+  color: #d93025;
+}
+
+/* error and hint text under each field */
+span.error {
+  display: block;
+  min-height: 0;
+  margin-top: 4px;
+  font-size: 13px;
+  color: #d93025;
+}
+
+span.error:empty {
+  display: none;
+}
+
+.hint {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  color: #5f6b7a;
+}
+
+.hint.warn {
+  color: #d93025;
+  font-weight: 600;
+}
+
+.hint.strength-1 { color: #d93025; }
+.hint.strength-2 { color: #e37400; }
+.hint.strength-3 { color: #188038; }
+.hint.strength-4 { color: #0b6b2c; font-weight: 600; }
+
+/* summary and success messages above the form */
+.alert {
+  display: block;
+  margin: 12px 0 18px;
+  padding: 14px 18px;
+  border: 1px solid;
+  border-left-width: 5px;
+  border-radius: 8px;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.alert[hidden] {
+  display: none;
+}
+
+.alert.error {
+  margin-top: 12px;
+  font-size: 15px;
+  color: #a1261c;
+  background-color: #fdecea;
+  border-color: #d93025;
+}
+
+.alert.success {
+  color: #0b5a25;
+  background-color: #e6f4ea;
+  border-color: #188038;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =====================================================
+   PRACTICUM 12 - API data page
+   display, grid, flex, overflow, border, padding, margin
+   ===================================================== */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.toolbar button {
+  margin-bottom: 0;
+}
+
+code {
+  padding: 2px 6px;
+  font-size: 13px;
+  word-break: break-all;
+  background-color: #eef2f9;
+  border-radius: 4px;
+}
+
+/* ---------- Loading indicator ---------- */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 16px 0;
+  padding: 24px;
+  background-color: #f4f7fb;
+  border: 1px dashed #1e5eff;
+  border-radius: 8px;
+}
+
+.loader[hidden],
+.summary-grid[hidden],
+.table-wrap[hidden] {
+  display: none;
+}
+
+.loader p {
+  margin: 0;
+  color: #174ea6;
+  font-weight: 500;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 4px solid #d5deea;
+  border-top-color: #1e5eff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ---------- Error box ---------- */
+#error-box p {
+  margin: 0 0 10px;
+}
+
+#error-box button {
+  width: auto;
+  margin: 0;
+}
+
+/* ---------- Summary cards (CSS Grid) ---------- */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.stat {
+  padding: 14px;
+  text-align: center;
+  background-color: #f4f7fb;
+  border: 1px solid #d5deea;
+  border-top: 4px solid #1e5eff;
+  border-radius: 8px;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.stat p {
+  margin: 0;
+  font-size: 14px;
+  color: #5f6b7a;
+}
+
+.stat-number {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: #174ea6;
+}
+
+/* ---------- Table that scrolls sideways when the screen is narrow ---------- */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid #d5deea;
+  border-radius: 8px;
+}
+
+#candidate-table {
+  min-width: 760px;
+}
+
+#candidate-table tbody tr {
+  animation: fadeInUp 0.4s ease both;
+}
+
+#candidate-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .toolbar button {
+    flex: 1 1 100%;
+  }
+}
+
+/* ---------- Recruiter-only tools (hidden from normal visitors) ---------- */
+.row-actions .mini-btn,
+#shortlist-panel,
+#add-vacancy {
+  display: none;
+}
+
+body.recruiter .row-actions .mini-btn {
+  display: inline-block;
+}
+
+body.recruiter #shortlist-panel,
+body.recruiter #add-vacancy {
+  display: block;
+}
+
+#recruiter-toggle {
+  margin-left: 8px;
+}

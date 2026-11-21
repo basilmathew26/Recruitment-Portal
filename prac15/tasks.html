@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="HireHub recruiter task manager"
+    />
+    <title>Task Manager | HireHub Recruitment Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      /* apply saved settings before the page paints (no flash) */
+      try {
+        var s = JSON.parse(localStorage.getItem("hirehubSettings")) || {};
+        var c = document.documentElement.classList;
+        if (s.dark) c.add("dark");
+        if (s.hideSalary) c.add("hide-salary");
+        if (s.reduceMotion) c.add("no-motion");
+      } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header id="top">
+      <h1>HireHub Recruitment Portal</h1>
+      <p>Connecting talent with opportunity</p>
+    </header>
+    <nav>
+      <a class="brand" href="index.html">
+        <img src="images/logo.svg" alt="HireHub logo" width="160" height="48" />
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="candidates.html">Candidates</a></li>
+        <li><a href="tasks.html" class="active">Tasks</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section id="task-form-section">
+        <h2 id="form-title">Add a Recruitment Task</h2>
+        <p>Plan screening, interviews and follow-ups. Tasks are saved in your browser.</p>
+
+        <form id="task-form">
+          <input type="hidden" id="task-id" />
+          <div class="form-grid">
+            <div>
+              <label for="task-title">Task Title *</label>
+              <input type="text" id="task-title" required minlength="3" maxlength="80"
+                     placeholder="e.g. Screen Web Developer resumes" />
+            </div>
+            <div>
+              <label for="task-priority">Priority</label>
+              <select id="task-priority">
+                <option value="High">High</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+            <div>
+              <label for="task-status">Status</label>
+              <select id="task-status">
+                <option value="Pending" selected>Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+            <div>
+              <label for="task-due">Due Date</label>
+              <input type="date" id="task-due" />
+            </div>
+          </div>
+          <p>
+            <label for="task-notes">Notes</label><br />
+            <textarea id="task-notes" rows="3" maxlength="200"
+                      placeholder="Optional details (max 200 characters)"></textarea>
+          </p>
+          <p>
+            <button type="submit" id="save-btn">Add Task</button>
+            <button type="button" id="cancel-btn" class="secondary" hidden>Cancel Edit</button>
+          </p>
+        </form>
+      </section>
+
+      <section id="task-list-section">
+        <h2>Your Tasks</h2>
+
+        <ul class="task-stats" id="task-stats">
+          <li>Total: <strong id="count-total">0</strong></li>
+          <li>Pending: <strong id="count-pending">0</strong></li>
+          <li>In Progress: <strong id="count-progress">0</strong></li>
+          <li>Completed: <strong id="count-done">0</strong></li>
+        </ul>
+
+        <div class="filter-bar">
+          <div>
+            <label for="filter-status">Show</label>
+            <select id="filter-status">
+              <option value="All">All tasks</option>
+              <option value="Pending">Pending</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+          <button type="button" id="clear-done" class="secondary">Delete completed</button>
+        </div>
+
+        <p id="task-empty" class="empty-msg" hidden></p>
+
+        <div id="task-list">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Task</th>
+                <th scope="col">Priority</th>
+                <th scope="col">Due</th>
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="task-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2026 HireHub Recruitment Portal. All rights reserved.</p>
+      <p>
+        Email:
+        <a href="mailto:careers@hirehub.example">careers@hirehub.example</a> |
+        Phone: +91 98765 43210
+      </p>
+    </footer>
+    <a class="back-to-top" href="#top">&uarr; Top</a>
+    <div id="toast" class="toast" role="status" aria-live="polite"><span></span></div>
+    <script src="js/animations.js" defer></script>
+    <script src="js/settings.js" defer></script>
+    <script src="js/tasks.js" defer></script>
+  </body>
+</html>

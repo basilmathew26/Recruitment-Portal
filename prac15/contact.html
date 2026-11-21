@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="HireHub - job vacancies and online applications"
+    />
+    <title>Contact | HireHub Recruitment Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      /* apply saved settings before the page paints (no flash) */
+      try {
+        var s = JSON.parse(localStorage.getItem("hirehubSettings")) || {};
+        var c = document.documentElement.classList;
+        if (s.dark) c.add("dark");
+        if (s.hideSalary) c.add("hide-salary");
+        if (s.reduceMotion) c.add("no-motion");
+      } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>HireHub Recruitment Portal</h1>
+      <p>Connecting talent with opportunity</p>
+    </header>
+    <nav>
+      <a class="brand" href="index.html">
+        <img src="images/logo.svg" alt="HireHub logo" width="160" height="48" />
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="candidates.html">Candidates</a></li>
+        <li><a href="tasks.html">Tasks</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <p>
+          Have a question about a vacancy or the application process? Reach out
+          to our HR team.
+        </p>
+        <ul>
+          <li><strong>Address:</strong> 12 Park Street, Kochi, Kerala</li>
+          <li>
+            <strong>Email:</strong>
+            <a href="mailto:careers@hirehub.example">careers@hirehub.example</a>
+            <button type="button" class="copy-btn" data-copy="careers@hirehub.example">Copy</button>
+          </li>
+          <li>
+            <strong>Phone:</strong> +91 98765 43210
+            <button type="button" class="copy-btn" data-copy="+91 98765 43210">Copy</button>
+          </li>
+          <li><strong>Office hours:</strong> Monday to Friday, 9 AM to 5 PM</li>
+        </ul>
+      </section>
+
+      <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="accordion">
+          <details>
+            <summary>How do I apply for a job?</summary>
+            <p>Open the <a href="jobs.html">Jobs</a> page, pick a vacancy and click Apply. Fill in the online form and upload your resume.</p>
+          </details>
+          <details>
+            <summary>Is there a fee for candidates?</summary>
+            <p>No. HireHub never charges candidates for applications, interviews or career guidance.</p>
+          </details>
+          <details>
+            <summary>Can freshers apply?</summary>
+            <p>Yes. Many vacancies, including internships, are open to freshers and final-year students.</p>
+          </details>
+          <details>
+            <summary>How long does the hiring process take?</summary>
+            <p>Most companies reply within one week of receiving your application and complete interviews within three weeks.</p>
+          </details>
+        </div>
+        <p><button type="button" id="faq-toggle-all" class="secondary">Expand all</button></p>
+      </section>
+    </main>
+    <footer>
+      <p>© 2026 HireHub Recruitment Portal. All rights reserved.</p>
+      <p>
+        Email:
+        <a href="mailto:careers@hirehub.example">careers@hirehub.example</a> |
+        Phone: +91 98765 43210
+      </p>
+    </footer>
+    <div id="toast" class="toast" role="status" aria-live="polite"><span></span></div>
+    <script src="js/animations.js" defer></script>
+    <script src="js/settings.js" defer></script>
+    <script src="js/components.js" defer></script>
+  </body>
+</html>
